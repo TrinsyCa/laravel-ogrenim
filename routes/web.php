@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\deneme;
+use App\Http\Controllers\Yonet;
+use App\Http\Controllers\FormFunc;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*Route::get('/deneme',function(){
+    return view('deneme');
+});*/
+
+Route::get('/user/{isim}',[deneme::class,'test'])->name('user');
+
+Route::get('/web',[Yonet::class,'site'])->name('main');
+
+Route::get('/form',[FormFunc::class,'gorunum']);
